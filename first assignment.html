@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web flow Agency Template</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f9fc;
+      color: #1d1d1f;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .btn, .signup-btn, .cta-btn, .contact-form button {
+      background: #4f46e5;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover, .signup-btn:hover, .cta-btn:hover, .contact-form button:hover {
+      background: #4338ca;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 0;
+    }
+
+    .hero {
+      background: url('Assets/Hero-bg.PNG') repeat;
+      background-color: #f5f7fd;
+      padding: 100px 20px 80px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero .nav {
+      position: absolute;
+      top: 30px;
+      width: 100%;
+      max-width: 1200px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+    }
+
+    .hero .logo {
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: #4f46e5;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1f1f1f;
+      max-width: 700px;
+      margin: 100px auto 20px;
+    }
+
+    .preview {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background: #f7f9fc;
+      padding: 60px 20px;
+    }
+
+    .preview-text {
+      max-width: 50%;
+    }
+
+    .preview-text h2 {
+      font-size: 1.8rem;
+    }
+
+    .preview-text p {
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+
+    .preview-img img {
+      max-width: 100%;
+      border-radius: 20px;
+    }
+
+    .stats {
+      background: #e9eaff;
+      text-align: center;
+      padding: 60px 20px;
+      border-radius: 16px;
+      margin: 40px auto;
+    }
+
+    .stats h2 {
+      margin-bottom: 30px;
+    }
+
+    .stats-data {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #4f46e5;
+    }
+
+    .reviews {
+      background: #f4f6fe;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .reviews h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .review-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 24px;
+      width: 300px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+      text-align: left;
+    }
+
+    .card p {
+      margin: 0 0 12px;
+      color: #374151;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .review-footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .review-footer img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+
+    .reviewer-info {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .contact-section {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 60px;
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .contact-text {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .contact-text h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-form label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fff;
+      font-family: inherit;
+    }
+
+    .contact-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    @media (max-width: 768px) {
+      .contact-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .contact-text h2 {
+        font-size: 2.2rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+        margin-top: 120px;
+      }
+
+      .hero .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .preview {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .preview-text, .preview-img {
+        max-width: 100%;
+      }
+
+      .stats-data {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .review-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    footer {
+      background: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid #ddd;
+    }
+
+    footer h1 {
+      color: #4f46e5;
+      font-size: 2rem;
+    }
+
+    footer nav {
+      margin-top: 15px;
+    }
+
+    footer nav a {
+      margin: 0 15px;
+      color: #6b7280;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="nav">
+      <div class="logo">LOGO</div>
+      <a href="#" class="signup-btn">Sign Up</a>
+    </div>
+    <h1>Cool Dark UI Template for Web flow Agencies!</h1>
+    <a href="#" class="cta-btn">Stay Focused</a>
+  </section>
+
+  <section class="preview container">
+    <div class="preview-text">
+      <h2>See It in Action</h2>
+      <p>Explore the live preview and imagine your brand in this bold new look.</p>
+      <a href="#" class="btn">Launch Live Preview</a>
+    </div>
+    <div class="preview-img">
+      <img src=" Assets/wc-mini.PNG" alt="Web flow Conf 2022 Preview"/>
+    </div>
+  </section>
+
+  <section class="stats container">
+    <h2>Joined Thousands of Productive Users</h2>
+    <div class="stats-data">
+      <div><strong>50K</strong><br/>Active Users</div>
+      <div><strong>2M+</strong><br/>Focus Sessions</div>
+      <div><strong>95%</strong><br/>Satisfaction Rate</div>
+    </div>
+  </section>
+
+  <section class="reviews container">
+    <h2>What our users say</h2>
+    <div class="review-cards">
+      <div class="card">
+        <p>⭐⭐⭐⭐⭐</p>
+        <h3>Loved by Designers</h3>
+        <p>This template instantly leveled up our presence. ~ Studio Vertex</p>
+        <div class="review-footer">
+          <img src="Assets/avater.PNG" alt="Reviewer photo">
+          <div class="reviewer-info">
+            <strong>Reviewer name</strong>
+            <span>Date</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>⭐⭐⭐⭐⭐</p>
+        <h3>Efficient and Elegant</h3>
+        <p>The layout is clean and modern. Our clients love it. ~ Creative Core</p>
+        <div class="review-footer">
+          <img src="Assets/avater.PNG" alt="Reviewer photo">
+          <div class="reviewer-info">
+            <strong>Reviewer name</strong>
+            <span>Date</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p>⭐⭐⭐⭐⭐</p>
+        <h3>High Conversion Rate</h3>
+        <p>We've seen a significant increase in leads. ~ Design Orbit</p>
+        <div class="review-footer">
+          <img src="Assets/avater.PNG" alt="Reviewer photo">
+          <div class="reviewer-info">
+            <strong>Reviewer name</strong>
+            <span>Date</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-text">
+      <h2>Let's Get in <br> Touch</h2>
+    </div>
+    <form class="contact-form">
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="example@gmail.com" required />
+      </div>
+      <div>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Full name" required />
+      </div>
+      <div>
+        <label for="message">Your Message</label>
+        <textarea id="message" placeholder="Write your message..." required></textarea>
+      </div>
+      <button type="submit">Get in Touch</button>
+    </form>
+  </section>
+
+  <footer>
+    <h1>LOGO</h1>
+    <p>Ready to elevate your online presence? Contact us today to discuss your project and discover how we can bring your vision to life.</p>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">How it Works</a>
+      <a href="#">Services</a>
+    </nav>
+  </footer>
+</body>
+</html>
